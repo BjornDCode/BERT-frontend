@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Index extends Component {
+class IndexPage extends Component {
 
     render() {
         return(
             <div className="app">
-                <h1>Index</h1>
+                <h1>IndexPage</h1>
             </div>
         );
     }
 }
- export default Index
+ export default IndexPage
