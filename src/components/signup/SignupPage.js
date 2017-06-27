@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SignupForm from './SignupForm';
 
 class SignupPage extends Component {
 
@@ -6,6 +7,7 @@ class SignupPage extends Component {
         return(
             <div className="signup">
                 <h1>SignupPage</h1>
+                <SignupForm />
             </div>
         );
     }

@@ -6,9 +6,6 @@ class LoginPage extends Component {
         return(
             <div className="signin">
                 <h1>LoginPage</h1>
-                <form>
-
-                </form>
             </div>
         );
     }
