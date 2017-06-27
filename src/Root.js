@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
-import App from './layouts/App';
-import history from './history';
+import { BrowserRouter } from 'react-router-dom';
+import App from './pages/partials/App';
 
 class Root extends Component {
 
     render() {
         return (
             <Provider store={this.props.store}>
-                <Router history={history}>
-                    <Route path="/" component={App} />
-                </Router>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
             </Provider>
         );
     }

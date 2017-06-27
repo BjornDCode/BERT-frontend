@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+class Index extends Component {
 
     render() {
         return(
             <div className="app">
-                <h1>Yoyou</h1>
+                <h1>Index</h1>
             </div>
         );
     }
 }
- export default App
+ export default Index
