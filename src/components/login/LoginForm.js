@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import validateInput from '../../utils/validations/signup';
 import InputFieldGroup from '../common/InputFieldGroup';
 import InputSubmitGroup from '../common/InputSubmitGroup';
+import validateInput from '../../utils/validations/login';
 
-class SignupForm extends Component {
-    constructor (props) {
+class LoginForm extends Component {
+    constructor(props) {
         super(props);
 
         this.state = {
-            "username": "",
             "email": "",
             "password": "",
-            "password_confirmation": "",
-            errors: {},
-            isLoading: false,
-            redirectTo: null
-        }
+            "errors": {},
+            "isLoading": false,
+            "redirectTo": null
+        };
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -41,15 +39,15 @@ class SignupForm extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        if (this.isValid()) {
+        if(this.isValid()) {
             this.setState({ errors: {}, isLoading: true });
-            this.props.userSignupRequest(this.state).then(
+            this.props.userLoginRequest(this.state).then(
                 () => {
                     this.props.addFlashMessage({
                         type: 'success',
-                        message: 'You signed up successfully. Please sign in!'
+                        message: 'You are now signed in'
                     });
-                    this.setState({ redirectTo: "/signin" })
+                    this.setState({ redirectTo: "/dashboard" });
                 },
                 (error) => this.setState({ errors: error.response.data, isLoading: false })
             );
@@ -58,30 +56,28 @@ class SignupForm extends Component {
 
     render() {
 
-        const { username, email, password, password_confirmation, errors, redirectTo, isLoading } = this.state;
+        const { email, password, errors, isLoading, redirectTo } = this.state;
 
         return(
-            <form className="signup-form" onSubmit={this.onSubmit}>
+            <form className="login-form" onSubmit={this.onSubmit}>
 
                 {this.state.redirectTo ? <Redirect push={true} to={redirectTo} /> : null}
 
-                <h1>Sign Up</h1>
+                <h1>Login</h1>
 
-                <InputFieldGroup type="text" label="Username" name="username" value={username} placeholder="Username" onChange={this.onChange} errors={errors} />
-                <InputFieldGroup type="text" label="Email" name="email" value={email} placeholder="Email" onChange={this.onChange} errors={errors} />
+                <InputFieldGroup type="email" label="Email" name="email" value={email} placeholder="Email" onChange={this.onChange} errors={errors} />
                 <InputFieldGroup type="password" label="Password" name="password" value={password} placeholder="Password" onChange={this.onChange} errors={errors} />
-                <InputFieldGroup type="password" label="Password (Confirmation)" name="password_confirmation" value={password_confirmation} placeholder="Password (Confirmation)" onChange={this.onChange} errors={errors} />
 
-                <InputSubmitGroup value="Sign Up" isLoading={isLoading} />
+                <InputSubmitGroup value="Login" isLoading={isLoading} />
 
             </form>
         );
     }
 }
 
-SignupForm.propTypes = {
-    userSignupRequest: PropTypes.func.isRequired,
+LoginForm.propTypes = {
+    userLoginRequest: PropTypes.func.isRequired,
     addFlashMessage: PropTypes.func.isRequired
 };
 
-export default SignupForm;
+export default LoginForm;

@@ -11,7 +11,7 @@ class InputFieldGroup extends Component {
             <div className="form-group">
                 <label>{label}:</label>
                 <input type={type} name={name} value={value} placeholder={placeholder} onChange={onChange}  />
-                {errors.username && <span className="error">{errors.username[0]}</span>}
+                {errors[name] && <span className="error">{errors[name][0]}</span>}
             </div>
         );
     }
