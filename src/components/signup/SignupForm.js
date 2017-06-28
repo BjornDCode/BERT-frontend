@@ -43,7 +43,13 @@ class SignupForm extends Component {
         if (this.isValid()) {
             this.setState({ errors: {}, isLoading: true });
             this.props.userSignupRequest(this.state).then(
-                () => { this.setState({ redirectTo: "/signin" }) },
+                () => {
+                    this.props.addFlashMessage({
+                        type: 'success',
+                        message: 'You signed up successfully. Please sign in!'
+                    });
+                    this.setState({ redirectTo: "/signin" })
+                },
                 (error) => this.setState({ errors: error.response.data, isLoading: false })
             );
         }
@@ -74,7 +80,8 @@ class SignupForm extends Component {
 }
 
 SignupForm.propTypes = {
-    userSignupRequest: PropTypes.func.isRequired
+    userSignupRequest: PropTypes.func.isRequired,
+    addFlashMessage: PropTypes.func.isRequired
 };
 
 export default SignupForm;
