@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import validateInput from '../../utils/validations/signup';
 import InputFieldGroup from '../common/InputFieldGroup';
 
@@ -13,7 +14,8 @@ class SignupForm extends Component {
             "password": "",
             "password_confirmation": "",
             errors: {},
-            isLoading: false
+            isLoading: false,
+            redirectTo: null
         }
 
         this.onChange = this.onChange.bind(this);
@@ -41,7 +43,7 @@ class SignupForm extends Component {
         if (this.isValid()) {
             this.setState({ errors: {}, isLoading: true });
             this.props.userSignupRequest(this.state).then(
-                () => {}, // Redirect to /login
+                () => { this.setState({ redirectTo: "/signin" }) },
                 (error) => this.setState({ errors: error.response.data, isLoading: false })
             );
         }
@@ -53,6 +55,9 @@ class SignupForm extends Component {
 
         return(
             <form className="signup-form" onSubmit={this.onSubmit}>
+
+                {this.state.redirectTo ? <Redirect push={true} to={this.state.redirectTo} /> : null}
+
                 <h1>Sign Up</h1>
 
                 <InputFieldGroup type="text" label="Username" name="username" value={username} placeholder="Username" onChange={this.onChange} errors={errors} />
@@ -70,6 +75,6 @@ class SignupForm extends Component {
 
 SignupForm.propTypes = {
     userSignupRequest: PropTypes.func.isRequired
-}
+};
 
 export default SignupForm;
