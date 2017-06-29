@@ -1,0 +1,9 @@
+
+body {
+    background-color: $grey--light;
+    @include museo-sans(regular);
+}
+
+.brand {
+    background-color: $brand;
+}

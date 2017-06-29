@@ -1,1 +1,13 @@
 
+$breakpoints: (
+    'small': (min-width: 480px),
+    'medium': (min-width: 767px),
+    'large': (min-width: 999px),
+) !global;
+
+// Colors
+$brand: #F5B337;
+$white: #ffffff;
+$black: #333333;
+$grey--light: #F7F7F7;
+$grey--medium: #E0E0E0;

@@ -388,3 +388,11 @@ template {
  */
 [hidden] {
   display: none; }
+
+body {
+  background-color: #F7F7F7;
+  font-family: 'Museo Sans';
+  font-weight: 500; }
+
+.brand {
+  background-color: #F5B337; }
