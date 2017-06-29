@@ -6,6 +6,7 @@
     "axios": "^0.16.2",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.4",
+    "npm-run-all": "^4.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -20,8 +21,11 @@
     "react-scripts": "1.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/ -o public/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o public/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
