@@ -13,7 +13,7 @@ class SignupPage extends Component {
         const { userSignupRequest, addFlashMessage } = this.props;
 
         return(
-            <div className="signup">
+            <div className="signup card-page">
                 <FlashMessagesList />
                 <SignupForm userSignupRequest={userSignupRequest} addFlashMessage={addFlashMessage} />
             </div>

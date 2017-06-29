@@ -61,7 +61,7 @@ class SignupForm extends Component {
         const { username, email, password, password_confirmation, errors, redirectTo, isLoading } = this.state;
 
         return(
-            <form className="auth-form card" onSubmit={this.onSubmit}>
+            <form className="card" onSubmit={this.onSubmit}>
 
                 {this.state.redirectTo ? <Redirect push={true} to={redirectTo} /> : null}
 

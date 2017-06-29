@@ -59,7 +59,7 @@ class LoginForm extends Component {
         const { email, password, errors, isLoading, redirectTo } = this.state;
 
         return(
-            <form className="auth-form card" onSubmit={this.onSubmit}>
+            <form className="card" onSubmit={this.onSubmit}>
 
                 {this.state.redirectTo ? <Redirect push={true} to={redirectTo} /> : null}
 

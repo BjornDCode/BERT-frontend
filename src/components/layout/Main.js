@@ -5,6 +5,7 @@ import IndexPage from '../index/IndexPage';
 import SignupPage from '../signup/SignupPage';
 import LoginPage from '../login/LoginPage';
 import DashboardPage from '../dashboard/DashboardPage';
+import Route404 from './Route404';
 import requireAuth from '../../utils/requireAuth';
 import noAuth from '../../utils/noAuth';
 
@@ -18,6 +19,7 @@ class Main extends Component {
                     <Route path="/signup" component={noAuth(SignupPage)} />
                     <Route path="/signin" component={noAuth(LoginPage)} />
                     <Route path="/dashboard" component={requireAuth(DashboardPage)} />
+                    <Route component={Route404} />
                 </Switch>
             </main>
         );
