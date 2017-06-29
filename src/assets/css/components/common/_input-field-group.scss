@@ -1,0 +1,26 @@
+
+.form-group {
+    margin-bottom: 20px;
+
+    .form-group-header {
+        display: flex;
+
+        label {
+            font-size: 13px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .error {
+            margin-left: 10px;
+            font-size: 13px;
+            display: block;
+            color: $error;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+    }
+
+}

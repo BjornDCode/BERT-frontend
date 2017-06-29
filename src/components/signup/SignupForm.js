@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import validateInput from '../../utils/validations/signup';
 import InputFieldGroup from '../common/InputFieldGroup';
 import InputSubmitGroup from '../common/InputSubmitGroup';
@@ -61,7 +61,7 @@ class SignupForm extends Component {
         const { username, email, password, password_confirmation, errors, redirectTo, isLoading } = this.state;
 
         return(
-            <form className="signup-form" onSubmit={this.onSubmit}>
+            <form className="auth-form card" onSubmit={this.onSubmit}>
 
                 {this.state.redirectTo ? <Redirect push={true} to={redirectTo} /> : null}
 
@@ -70,9 +70,11 @@ class SignupForm extends Component {
                 <InputFieldGroup type="text" label="Username" name="username" value={username} placeholder="Username" onChange={this.onChange} errors={errors} />
                 <InputFieldGroup type="text" label="Email" name="email" value={email} placeholder="Email" onChange={this.onChange} errors={errors} />
                 <InputFieldGroup type="password" label="Password" name="password" value={password} placeholder="Password" onChange={this.onChange} errors={errors} />
-                <InputFieldGroup type="password" label="Password (Confirmation)" name="password_confirmation" value={password_confirmation} placeholder="Password (Confirmation)" onChange={this.onChange} errors={errors} />
+                <InputFieldGroup type="password" label="Password (Repeat)" name="password_confirmation" value={password_confirmation} placeholder="Repeat Password" onChange={this.onChange} errors={errors} />
 
                 <InputSubmitGroup value="Sign Up" isLoading={isLoading} />
+
+                <Link to="/signin" className="form-link" >Already have an account? Sign in</Link>
 
             </form>
         );

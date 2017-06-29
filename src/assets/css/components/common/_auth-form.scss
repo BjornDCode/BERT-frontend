@@ -1,0 +1,8 @@
+.auth-form {
+
+    @include respond-to(small) {
+        width: 400px;
+        margin: 0;
+    }
+
+}

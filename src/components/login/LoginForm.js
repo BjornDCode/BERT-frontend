@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import InputFieldGroup from '../common/InputFieldGroup';
 import InputSubmitGroup from '../common/InputSubmitGroup';
 import validateInput from '../../utils/validations/login';
@@ -59,7 +59,7 @@ class LoginForm extends Component {
         const { email, password, errors, isLoading, redirectTo } = this.state;
 
         return(
-            <form className="login-form" onSubmit={this.onSubmit}>
+            <form className="auth-form card" onSubmit={this.onSubmit}>
 
                 {this.state.redirectTo ? <Redirect push={true} to={redirectTo} /> : null}
 
@@ -69,6 +69,8 @@ class LoginForm extends Component {
                 <InputFieldGroup type="password" label="Password" name="password" value={password} placeholder="Password" onChange={this.onChange} errors={errors} />
 
                 <InputSubmitGroup value="Login" isLoading={isLoading} />
+
+                <Link to="/signup" className="form-link" >Don't have an account yet? Sign up</Link>
 
             </form>
         );

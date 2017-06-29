@@ -18,12 +18,17 @@
 
     }
 
+    &.medium {
+        padding: 12px 0;
+    }
+
     &.big {
         padding: 15px 0;
     }
 
     &.brand {
         background-color: $brand;
+        color: $white;
         a {
             color: $white
         }

@@ -14,7 +14,6 @@ class SignupPage extends Component {
 
         return(
             <div className="signup">
-                <h1>SignupPage</h1>
                 <FlashMessagesList />
                 <SignupForm userSignupRequest={userSignupRequest} addFlashMessage={addFlashMessage} />
             </div>

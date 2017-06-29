@@ -5,7 +5,7 @@ class IndexPage extends Component {
 
     render() {
         return(
-            <div className="index-page">
+            <div className="index">
                 <div className="intro">
                     <h1>Easily generate Bipolar Emotional Response Tests (BERTs) with this tool!</h1>
                 </div>

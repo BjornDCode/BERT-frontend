@@ -14,7 +14,6 @@ class LoginPage extends Component {
 
         return(
             <div className="signin">
-                <h1>LoginPage</h1>
                 <FlashMessagesList />
                 <LoginForm userLoginRequest={userLoginRequest} addFlashMessage={addFlashMessage} />
             </div>

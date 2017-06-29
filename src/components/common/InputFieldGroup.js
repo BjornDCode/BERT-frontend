@@ -7,11 +7,17 @@ class InputFieldGroup extends Component {
 
         const { type, label, name, value, placeholder, onChange, errors } = this.props;
 
+        const errorClass = errors[name] ? "error" : "";
+
         return(
             <div className="form-group">
-                <label>{label}:</label>
-                <input type={type} name={name} value={value} placeholder={placeholder} onChange={onChange}  />
-                {errors[name] && <span className="error">{errors[name][0]}</span>}
+                <div className="form-group-header">
+                    <label>{label}:</label>
+                    <span className="error">{errors[name] ? errors[name][0] : null}</span>
+                </div>
+                <input className={"text-input " + errorClass} type={type} name={name} value={value} placeholder={placeholder} onChange={onChange} />
+                {/*errors[name] && <span className="error">{errors[name][0]}</span>*/}
+
             </div>
         );
     }

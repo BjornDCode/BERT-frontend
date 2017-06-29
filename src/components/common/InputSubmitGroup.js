@@ -9,7 +9,7 @@ class InputSubmitGroup extends Component {
 
         return(
             <div className="form-group">
-                <input type="submit" value={value} disabled={isLoading} />
+                <button className="button medium brand" disabled={isLoading}>{value}</button>
             </div>
         );
     }
