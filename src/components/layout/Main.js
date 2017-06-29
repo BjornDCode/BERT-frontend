@@ -6,6 +6,7 @@ import SignupPage from '../signup/SignupPage';
 import LoginPage from '../login/LoginPage';
 import DashboardPage from '../dashboard/DashboardPage';
 import requireAuth from '../../utils/requireAuth';
+import noAuth from '../../utils/noAuth';
 
 class Main extends Component {
 
@@ -13,9 +14,9 @@ class Main extends Component {
         return(
             <main className="main">
                 <Switch>
-                    <Route exact path="/" component={IndexPage} />
-                    <Route path="/signup" component={SignupPage} />
-                    <Route path="/signin" component={LoginPage} />
+                    <Route exact path="/" component={noAuth(IndexPage)} />
+                    <Route path="/signup" component={noAuth(SignupPage)} />
+                    <Route path="/signin" component={noAuth(LoginPage)} />
                     <Route path="/dashboard" component={requireAuth(DashboardPage)} />
                 </Switch>
             </main>
