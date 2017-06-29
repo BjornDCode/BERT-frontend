@@ -15,7 +15,8 @@
     }
 
     &.small {
-
+        padding: 10px 0;
+        font-size: 12px;
     }
 
     &.medium {
@@ -38,8 +39,20 @@
         background-color: $white;
     }
 
+    &.logout {
+        width: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 0;
+    }
+
     @include respond-to(medium) {
         width: 235px;
+
+        &.small {
+            font-size: 14px;
+        }
+
     }
 
     @include respond-to(large) {

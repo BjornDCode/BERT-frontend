@@ -427,6 +427,9 @@ h1 {
     height: 100%;
     font-family: 'Museo Sans';
     font-weight: 500; }
+  .button.small {
+    padding: 10px 0;
+    font-size: 12px; }
   .button.medium {
     padding: 12px 0; }
   .button.big {
@@ -438,9 +441,16 @@ h1 {
       color: #ffffff; }
   .button.white {
     background-color: #ffffff; }
+  .button.logout {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0; }
   @media (min-width: 767px) {
     .button {
-      width: 235px; } }
+      width: 235px; }
+      .button.small {
+        font-size: 14px; } }
   @media (min-width: 999px) {
     .button {
       width: 300px; }
@@ -561,3 +571,19 @@ h1 {
       font-size: 3em;
       max-width: 80%;
       margin: 0 auto; } }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 15px auto; }
+  .dashboard-header h1 {
+    margin: 0;
+    font-size: 20px; }
+  @media (min-width: 567px) {
+    .dashboard-header h1 {
+      font-size: 25px; } }
+  @media (min-width: 767px) {
+    .dashboard-header h1 {
+      font-size: 30px; } }
