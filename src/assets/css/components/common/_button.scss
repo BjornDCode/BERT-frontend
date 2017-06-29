@@ -1,0 +1,48 @@
+
+.button {
+    display: block;
+    width: 80%;
+    padding: 0;
+    margin-bottom: 20px;
+    border: none;
+
+    a {
+        font-size: 14px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        @include museo-sans(regular);
+    }
+
+    &.small {
+
+    }
+
+    &.big {
+        padding: 15px 0;
+    }
+
+    &.brand {
+        background-color: $brand;
+        a {
+            color: $white
+        }
+    }
+
+    &.white {
+        background-color: $white;
+    }
+
+    @include respond-to(medium) {
+        width: 235px;
+    }
+
+    @include respond-to(large) {
+        width: 300px;
+
+        a {
+            font-size: 16px;
+        }
+    }
+
+}

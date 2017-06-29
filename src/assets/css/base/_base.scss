@@ -2,8 +2,23 @@
 body {
     background-color: $grey--light;
     @include museo-sans(regular);
+    color: $black;
 }
 
 .brand {
     background-color: $brand;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+}
+
+.button {
+    outline: none;
 }
