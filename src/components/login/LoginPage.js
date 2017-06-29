@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FlashMessagesList from '../flash/FlashMessagesList';
 import LoginForm from './LoginForm';
-import { userLoginRequest } from '../../actions/loginActions';
+import { userLoginRequest } from '../../actions/authActions';
 import { addFlashMessage } from '../../actions/flashMessages';
 
 class LoginPage extends Component {
