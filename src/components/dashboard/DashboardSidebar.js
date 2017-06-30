@@ -29,7 +29,7 @@ class DashboardSidebar extends Component {
                     <li><NavLink to="/dashboard/page" activeClassName="active">Dynamic Page</NavLink></li>
                     <li><NavLink to="/dashboard/test" activeClassName="active">Dynamic Test</NavLink></li>
                 </ul>
-                <button className="toggle-nav" onClick={this.onClick} ><img src={arrow} /></button>
+                <button className="toggle-nav" onClick={this.onClick} ><img src={arrow} alt="Toggle Navigation" /></button>
             </aside>
         );
     }

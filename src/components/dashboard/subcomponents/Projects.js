@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ProjectWidget from './ProjectWidget';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
-import { getProjects } from '../../../actions/dashboardActions';
+import { getProjects } from '../../../actions/projectsActions';
 
 class Projects extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProject } from '../../../actions/dashboardActions';
+import { getCurrentProject } from '../../../actions/projectActions';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { isEmpty } from 'lodash';
