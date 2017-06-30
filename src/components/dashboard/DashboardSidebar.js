@@ -22,8 +22,6 @@ class DashboardSidebar extends Component {
     render() {
 
         const sideBarClass = this.state.navToggle ? "dashboard-sidebar visible" : "dashboard-sidebar";
-
-        console.log(this.props.project);
         const { title } = this.props.project.data;
 
         let pageCount;

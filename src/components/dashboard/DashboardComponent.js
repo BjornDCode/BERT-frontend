@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -24,9 +25,9 @@ export default function(ComposedComponent) {
 
             return (
                 <section className="dashboard-component card">
-                    <header>
                     { this.state.redirectTo && <Redirect push={true} to={this.state.redirectTo} />}
-                        <h2>DashboardComponent</h2>
+                    <header>
+                        <h2>{this.props.activePage.component}</h2>
                     </header>
                     <ComposedComponent />
                 </section>
@@ -34,9 +35,15 @@ export default function(ComposedComponent) {
         }
     }
 
+    DashboardComponent.propTypes = {
+        project: PropTypes.object.isRequired,
+        activePage: PropTypes.object.isRequired
+    };
+
     function mapStateToProps(state) {
         return {
-            project: state.project
+            project: state.project,
+            activePage: state.activePage
         }
     }
 

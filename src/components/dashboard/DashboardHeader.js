@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Logout from '../login/Logout';
 
 class DashboardHeader extends Component {
 
     render() {
 
-        const { title } = this.props;
-
         return(
             <header className="dashboard-header card">
-                <h1>{title}</h1>
+                <h1>{this.props.activePage.page}</h1>
                 <Logout />
             </header>
         );
@@ -18,7 +17,13 @@ class DashboardHeader extends Component {
 }
 
 DashboardHeader.propTypes = {
-    title: PropTypes.string.isRequired
+    activePage: PropTypes.object.isRequired
 };
 
-export default DashboardHeader;
+function mapStateToProps(state) {
+    return {
+        activePage: state.activePage
+    }
+}
+
+export default connect(mapStateToProps)(DashboardHeader);

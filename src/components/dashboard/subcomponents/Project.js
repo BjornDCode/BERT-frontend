@@ -6,6 +6,7 @@ import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
+import { setActivePage, setActiveDashboardComponent } from '../../../actions/activePage';
 
 
 class Project extends Component {
@@ -13,6 +14,13 @@ class Project extends Component {
     componentDidMount() {
         const { dispatch, getCurrentProject, project } = this.props;
         dispatch(getCurrentProject(project.id));
+    }
+
+    componentDidUpdate() {
+        const { dispatch, setActivePage, setActiveDashboardComponent, project } = this.props;
+        let title = project.id ? project.data.title : "Project";
+        dispatch(setActivePage(title));
+        dispatch(setActiveDashboardComponent("Project"));
     }
 
     render() {
@@ -52,13 +60,18 @@ class Project extends Component {
 }
 
 Project.propTypes = {
-    project: PropTypes.object.isRequired
+    project: PropTypes.object.isRequired,
+    getCurrentProject: PropTypes.func.isRequired,
+    setActivePage: PropTypes.func.isRequired,
+    setActiveDashboardComponent: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
     return {
         project: state.project,
-        getCurrentProject: getCurrentProject
+        getCurrentProject: getCurrentProject,
+        setActivePage: setActivePage,
+        setActiveDashboardComponent: setActiveDashboardComponent
     }
 }
 
