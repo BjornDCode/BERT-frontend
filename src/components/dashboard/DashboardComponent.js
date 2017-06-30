@@ -14,7 +14,7 @@ export default function(ComposedComponent) {
         }
 
         componentWillMount() {
-            if (!this.props.project.id && this.props.location.pathname != '/dashboard') {
+            if (!this.props.project.id && this.props.location.pathname !== '/dashboard') {
                 this.setState({ redirectTo: "/dashboard" });
             }
         }

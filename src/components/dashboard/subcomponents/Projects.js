@@ -9,7 +9,7 @@ import { getProjects } from '../../../actions/projectsActions';
 class Projects extends Component {
 
     componentDidMount() {
-        const { dispatch, getProjects, project } = this.props;
+        const { dispatch, getProjects } = this.props;
         dispatch(getProjects());
     }
 
