@@ -23,15 +23,28 @@ class DashboardSidebar extends Component {
 
         const sideBarClass = this.state.navToggle ? "dashboard-sidebar visible" : "dashboard-sidebar";
 
+        console.log(this.props.project);
+        const { title } = this.props.project.data;
+
+        let pageCount;
+        if (this.props.project.data.pages) {
+            pageCount = this.props.project.data.pages.data.length;
+        }
+
+        let testCount;
+        if (this.props.project.data.tests) {
+            testCount = this.props.project.data.tests.data.length;
+        }
+
         return (
             <aside className={sideBarClass}>
                 <ul className="card">
                     <li><NavLink exact to="/dashboard" activeClassName="active">Projects</NavLink></li>
                     {this.props.project.id && (
                         <div>
-                            <li><NavLink to="/dashboard/project" activeClassName="active">Dynamic Project</NavLink></li>
-                            <li><NavLink to="/dashboard/page" activeClassName="active">Dynamic Page</NavLink></li>
-                            <li><NavLink to="/dashboard/test" activeClassName="active">Dynamic Test</NavLink></li>
+                            <li><NavLink to="/dashboard/project" activeClassName="active">{title}</NavLink></li>
+                            <li><NavLink to="/dashboard/page" activeClassName="active">Pages ({pageCount})</NavLink></li>
+                            <li><NavLink to="/dashboard/test" activeClassName="active">Tests ({testCount})</NavLink></li>
                         </div>
                     )}
                 </ul>
