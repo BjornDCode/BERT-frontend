@@ -6,7 +6,7 @@ export default function(ComposedComponent) {
 
         render() {
             return (
-                <section className="DashboardComponent">
+                <section className="dashboard-component card">
                     <header>
                         <h2>DashboardComponent</h2>
                     </header>

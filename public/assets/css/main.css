@@ -577,7 +577,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   max-width: 960px;
-  margin: 15px auto; }
+  margin: 15px; }
   .dashboard-header h1 {
     margin: 0;
     font-size: 20px; }
@@ -587,3 +587,89 @@ h1 {
   @media (min-width: 767px) {
     .dashboard-header h1 {
       font-size: 30px; } }
+  @media (min-width: 999px) {
+    .dashboard-header {
+      margin: 15px auto;
+      box-sizing: border-box; } }
+
+@media (min-width: 999px) {
+  .dashboard-container {
+    display: flex;
+    max-width: 960px;
+    margin: 0 auto; } }
+
+.dashboard-sidebar ul {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50px;
+  margin: 0;
+  list-style-type: none;
+  transform: translateX(-100%);
+  transition: transform 250ms; }
+  .dashboard-sidebar ul li a {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 18px;
+    box-sizing: border-box; }
+    .dashboard-sidebar ul li a.active {
+      background-color: #F5B337;
+      color: #ffffff; }
+
+.dashboard-sidebar .toggle-nav {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: #F5B337;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 250ms, right 250ms; }
+  .dashboard-sidebar .toggle-nav img {
+    height: 40%;
+    transition: transform 250ms; }
+
+.dashboard-sidebar.visible ul {
+  transform: translateX(0); }
+
+.dashboard-sidebar.visible .toggle-nav img {
+  transform: rotate(180deg); }
+
+@media (min-width: 767px) {
+  .dashboard-sidebar ul {
+    right: 50%; }
+    .dashboard-sidebar ul li a {
+      font-size: 20px; } }
+
+@media (min-width: 999px) {
+  .dashboard-sidebar {
+    flex: 1; }
+    .dashboard-sidebar ul {
+      transform: translateX(0);
+      position: inherit; }
+      .dashboard-sidebar ul li a {
+        font-size: 16px; }
+    .dashboard-sidebar .toggle-nav {
+      display: none; } }
+
+.dashboard-component header h2 {
+  margin-top: 0;
+  font-size: 18px; }
+
+@media (min-width: 767px) {
+  .dashboard-component header h2 {
+    font-size: 25px; } }
+
+@media (min-width: 999px) {
+  .dashboard-component {
+    flex: 3;
+    margin: 0;
+    margin-left: 15px; } }

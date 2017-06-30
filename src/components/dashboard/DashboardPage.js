@@ -22,14 +22,18 @@ class DashboardPage extends Component {
 
                 <DashboardHeader title={this.state.activePage} />
 
-                <DashboardSidebar />
+                <div className="dashboard-container">
 
-                <Switch>
-                    <Route exact path="/dashboard" component={DashboardComponent(Projects)} />
-                    <Route path="/dashboard/project" component={DashboardComponent(Temp)} />
-                    <Route path="/dashboard/page" component={DashboardComponent(Temp)} />
-                    <Route path="/dashboard/test" component={DashboardComponent(Temp)} />
-                </Switch>
+                    <DashboardSidebar />
+
+                    <Switch>
+                        <Route exact path="/dashboard" component={DashboardComponent(Projects)} />
+                        <Route path="/dashboard/project" component={DashboardComponent(Temp)} />
+                        <Route path="/dashboard/page" component={DashboardComponent(Temp)} />
+                        <Route path="/dashboard/test" component={DashboardComponent(Temp)} />
+                    </Switch>
+
+                </div>
 
             </div>
         );

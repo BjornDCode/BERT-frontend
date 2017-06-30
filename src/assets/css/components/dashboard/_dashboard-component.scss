@@ -1,0 +1,25 @@
+
+.dashboard-component {
+
+    header {
+        h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+    }
+
+    @include respond-to(medium) {
+        header {
+            h2 {
+                font-size: 25px;
+            }
+        }
+    }
+
+    @include respond-to(large) {
+        flex: 3;
+        margin: 0;
+        margin-left: 15px;
+    }
+
+}
