@@ -4,3 +4,4 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 export const GET_PROJECTS = 'GET_PROJECTS';
 export const SET_PROJECTS = 'SET_PROJECTS';
+export const REQUEST_PROJECTS = 'REQUEST_PROJECTS';

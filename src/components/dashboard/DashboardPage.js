@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import DashboardHeader from './DashboardHeader';
 import DashboardSidebar from './DashboardSidebar';
+import Temp from './subcomponents/Temp';
 import Project from './subcomponents/Project';
+import NoData from './subcomponents/NoData';
+import Loader from '../common/Loader';
 import { getProjects } from '../../actions/dashboardActions';
 
 class DashboardPage extends Component {
@@ -25,30 +28,30 @@ class DashboardPage extends Component {
 
         let projectComponents;
 
-        console.log(this.props.projects);
-        if (this.props.projects.projects) {
-            projectComponents = this.props.projects.projects.map(project => {
-                return <div key={project.id}>{project.title}</div>
+        if (this.props.projects.data) {
+            projectComponents = this.props.projects.data.map(project => {
+                return <Project key={project.id} id={project.id} title={project.title} />
             });
-        } else {
-            projectComponents = <div>No Projects</div>
         }
-
 
         return(
             <div className="dashboard">
 
                 <DashboardHeader title={this.state.activePage} />
 
-                {/* <DashboardSidebar /> */}
+                <DashboardSidebar />
 
-                {projectComponents ? projectComponents : null}
+                {/*projectComponents ? projectComponents : null*/}
 
                 <Switch>
-                    <Route path="/dashboard/project" component={Project} />
-                    <Route path="/dashboard/page" component={Project} />
-                    <Route path="/dashboard/test" component={Project} />
+                    <Route path="/dashboard/project" component={Temp} />
+                    <Route path="/dashboard/page" component={Temp} />
+                    <Route path="/dashboard/test" component={Temp} />
                 </Switch>
+
+                <section className="dashboard-component">
+                    {this.props.projects.isLoading ? <Loader /> : (projectComponents.length > 0) ? projectComponents : <NoData type="projects" />}
+                </section>
 
             </div>
         );

@@ -1,15 +1,22 @@
-import { SET_PROJECTS } from '../actions/types';
-const initialState = {
+import { SET_PROJECTS, REQUEST_PROJECTS } from '../actions/types';
 
+const initialState = {
+    data: [],
+    isLoading: false
 };
 
 const projects = (state=initialState, action={}) => {
     switch (action.type) {
+        case REQUEST_PROJECTS:
+            return {
+                data: [],
+                isLoading: true
+            }
         case SET_PROJECTS:
             return {
-                projects: action.projects
+                data: action.projects,
+                isLoading: false
             }
-            break;
         default:
             return state;
     }

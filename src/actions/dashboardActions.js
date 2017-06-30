@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { GET_PROJECTS, SET_PROJECTS } from './types';
+import { GET_PROJECTS, SET_PROJECTS, REQUEST_PROJECTS } from './types';
+
+export function requestProjects() {
+    return {
+        type: REQUEST_PROJECTS
+    }
+}
 
 export function getProjects() {
     return dispatch => {
@@ -12,6 +18,8 @@ export function getProjects() {
                 'Accept': 'application/json'
             }
         };
+
+        dispatch(requestProjects());
 
         return axios(authConfig).then(response => {
             dispatch(setProjects(response.data.data));
