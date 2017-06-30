@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import arrow from '../../assets/images/arrow.svg';
 
@@ -25,9 +27,13 @@ class DashboardSidebar extends Component {
             <aside className={sideBarClass}>
                 <ul className="card">
                     <li><NavLink exact to="/dashboard" activeClassName="active">Projects</NavLink></li>
-                    <li><NavLink to="/dashboard/project" activeClassName="active">Dynamic Project</NavLink></li>
-                    <li><NavLink to="/dashboard/page" activeClassName="active">Dynamic Page</NavLink></li>
-                    <li><NavLink to="/dashboard/test" activeClassName="active">Dynamic Test</NavLink></li>
+                    {this.props.project.id && (
+                        <div>
+                            <li><NavLink to="/dashboard/project" activeClassName="active">Dynamic Project</NavLink></li>
+                            <li><NavLink to="/dashboard/page" activeClassName="active">Dynamic Page</NavLink></li>
+                            <li><NavLink to="/dashboard/test" activeClassName="active">Dynamic Test</NavLink></li>
+                        </div>
+                    )}
                 </ul>
                 <button className="toggle-nav" onClick={this.onClick} ><img src={arrow} alt="Toggle Navigation" /></button>
             </aside>
@@ -35,4 +41,14 @@ class DashboardSidebar extends Component {
     }
 }
 
-export default DashboardSidebar;
+DashboardSidebar.propTypes = {
+    project: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+    return {
+        project: state.project
+    }
+}
+
+export default connect(mapStateToProps)(DashboardSidebar);

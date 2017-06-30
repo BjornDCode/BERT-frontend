@@ -5,6 +5,7 @@ import { getCurrentProject } from '../../../actions/projectActions';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { isEmpty } from 'lodash';
+import { Link } from 'react-router-dom';
 
 
 class Project extends Component {
@@ -23,7 +24,7 @@ class Project extends Component {
 
             if (!isEmpty(this.props.project.data.pages.data)) {
                 pageComponents = this.props.project.data.pages.data.map(page => {
-                    return <div key={page.id}>{page.title}</div>
+                    return <div key={page.id}><Link to="/dashboard/page">{page.title}</Link></div>
                 });
             }
 
