@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_PROJECTS, SET_PROJECTS, REQUEST_PROJECTS } from './types';
+import { SET_PROJECTS, REQUEST_PROJECTS } from './types';
 
 export function requestProjects() {
     return {

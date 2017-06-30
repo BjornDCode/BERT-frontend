@@ -7,10 +7,10 @@ class DashboardSidebar extends Component {
         return (
             <aside className="dashboard-sidebar">
                 <ul>
-                    <NavLink exact to="/dashboard" activeClassname="active">Projects</NavLink>
-                    <NavLink to="/dashboard/project" activeClassname="active">Dynamic Project</NavLink>
-                    <NavLink to="/dashboard/page" activeClassname="active">Dynamic Page</NavLink>
-                    <NavLink to="/dashboard/test" activeClassname="active">Dynamic Test</NavLink>
+                    <NavLink exact to="/dashboard" activeClassName="active">Projects</NavLink>
+                    <NavLink to="/dashboard/project" activeClassName="active">Dynamic Project</NavLink>
+                    <NavLink to="/dashboard/page" activeClassName="active">Dynamic Page</NavLink>
+                    <NavLink to="/dashboard/test" activeClassName="active">Dynamic Test</NavLink>
                 </ul>
             </aside>
         );
