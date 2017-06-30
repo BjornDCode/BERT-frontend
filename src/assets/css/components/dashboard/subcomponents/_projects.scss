@@ -1,0 +1,38 @@
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+
+    .project {
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid $grey--medium;
+        margin-bottom: 15px;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 0;
+            font-size: 14px;
+            color: darken($grey--medium, 15%);
+            &:hover {
+                text-decoration: none;
+                border: none;
+                background-color: $brand;
+                color: $white;
+            }
+
+            h3 {
+                margin: 0;
+            }
+        }
+
+        &:hover {
+            border-color: $brand;
+        }
+
+    }
+
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Project from './Project';
+import ProjectWidget from './ProjectWidget';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { getProjects } from '../../../actions/dashboardActions';
@@ -19,12 +19,12 @@ class Projects extends Component {
 
         if (this.props.projects.data) {
             projectComponents = this.props.projects.data.map(project => {
-                return <Project key={project.id} id={project.id} title={project.title} />
+                return <ProjectWidget key={project.id} id={project.id} title={project.title} />
             });
         }
 
         return (
-            <div>
+            <div className="projects">
                 {this.props.projects.isLoading ? <Loader /> : (projectComponents.length > 0) ? projectComponents : <NoData type="projects" />}
             </div>
         );

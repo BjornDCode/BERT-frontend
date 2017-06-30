@@ -18,7 +18,8 @@
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
+    "react-square-cards": "^1.0.14"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o public/",

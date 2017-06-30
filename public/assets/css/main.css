@@ -660,9 +660,11 @@ h1 {
     .dashboard-sidebar .toggle-nav {
       display: none; } }
 
-.dashboard-component header h2 {
-  margin-top: 0;
-  font-size: 18px; }
+.dashboard-component header {
+  margin-bottom: 30px; }
+  .dashboard-component header h2 {
+    margin-top: 0;
+    font-size: 18px; }
 
 @media (min-width: 767px) {
   .dashboard-component header h2 {
@@ -673,3 +675,29 @@ h1 {
     flex: 3;
     margin: 0;
     margin-left: 15px; } }
+
+.projects {
+  display: flex;
+  flex-wrap: wrap; }
+  .projects .project {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #E0E0E0;
+    margin-bottom: 15px; }
+    .projects .project a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #bababa; }
+      .projects .project a:hover {
+        text-decoration: none;
+        border: none;
+        background-color: #F5B337;
+        color: #ffffff; }
+      .projects .project a h3 {
+        margin: 0; }
+    .projects .project:hover {
+      border-color: #F5B337; }
