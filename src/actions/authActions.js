@@ -2,6 +2,7 @@ import axios from 'axios';
 import { SET_CURRENT_USER } from './types';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
+import { postConfig } from '../utils/authConfigs';
 
 export function setCurrentUser(user) {
     return {
@@ -13,15 +14,7 @@ export function setCurrentUser(user) {
 export function userLoginRequest(userData) {
     return dispatch => {
 
-        const authConfig = {
-            method: 'POST',
-            url: 'http://bert-backend.dev/auth/signin',
-            data: userData,
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        };
+        const authConfig = postConfig('http://bert-backend.dev/auth/signin', userData);
 
         return axios(authConfig).then(response => {
             const token = response.data.token;
