@@ -43,7 +43,7 @@ TestWidget.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        setCurrentTest: setCurrentTest
+        setCurrentTest
     }
 }
 

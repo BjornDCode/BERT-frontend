@@ -31,7 +31,6 @@ class Page extends Component {
 
             if (!isEmpty(this.props.page.data.tests.data)) {
                 testComponents = this.props.page.data.tests.data.map(test => {
-                    // return <div key={test.id}>{test.version}</div>
                     return <TestWidget key={test.id} id={test.id} version={test.version} page={test.page} />
                 });
             }
@@ -56,9 +55,9 @@ Page.propTypes = {
 function mapStateToProps(state) {
     return {
         page: state.page,
-        getCurrentPage: getCurrentPage,
-        setActivePage: setActivePage,
-        setActiveDashboardComponent: setActiveDashboardComponent
+        getCurrentPage,
+        setActivePage,
+        setActiveDashboardComponent
     }
 }
 

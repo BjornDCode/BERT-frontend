@@ -34,8 +34,6 @@ class Project extends Component {
             if (!isEmpty(this.props.project.data.pages.data)) {
                 pageComponents = this.props.project.data.pages.data.map(page => {
                     return <PageWidget key={page.id} id={page.id} title={page.title} />
-                    // return <div key={page.id}><Link to="/dashboard/page">{page.title}</Link></div>
-                    // return <Widget key={page.id} id={page.id} title={page.title} redirect="/dashboard/page" setActiveItem={setCurrentPage} dispatch={dispatch} />
                 });
             }
 
@@ -72,9 +70,9 @@ Project.propTypes = {
 function mapStateToProps(state) {
     return {
         project: state.project,
-        getCurrentProject: getCurrentProject,
-        setActivePage: setActivePage,
-        setActiveDashboardComponent: setActiveDashboardComponent,
+        getCurrentProject,
+        setActivePage,
+        setActiveDashboardComponent,
     }
 }
 

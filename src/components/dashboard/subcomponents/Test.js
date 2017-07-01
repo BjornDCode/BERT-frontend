@@ -62,9 +62,9 @@ Test.propTypes = {
 function mapStateToProps(state) {
     return {
         test: state.test,
-        getCurrentTest: getCurrentTest,
-        setActivePage: setActivePage,
-        setActiveDashboardComponent: setActiveDashboardComponent
+        getCurrentTest,
+        setActivePage,
+        setActiveDashboardComponent
     }
 }
 

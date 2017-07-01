@@ -42,7 +42,7 @@ PageWidget.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        setCurrentPage: setCurrentPage
+        setCurrentPage
     }
 }
 

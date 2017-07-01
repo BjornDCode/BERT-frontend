@@ -53,11 +53,11 @@ Projects.propTypes = {
 function mapStateToProps(state) {
     return {
         getProjects: getProjects,
-        setActivePage: setActivePage,
-        setActiveDashboardComponent: setActiveDashboardComponent,
         projects: state.projects,
         project: state.project,
-        setCurrentProject: setCurrentProject
+        setActivePage,
+        setActiveDashboardComponent,
+        setCurrentProject
     }
 }
 

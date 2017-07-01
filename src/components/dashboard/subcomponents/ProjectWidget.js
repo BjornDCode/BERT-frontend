@@ -12,12 +12,9 @@ class ProjectWidget extends Component {
             redirect: false
         }
 
-        this.onClick = this.onClick.bind(this);
     }
 
-    onClick(e) {
-        e.preventDefault();
-        const id = e.target.dataset.id;
+    onClick(id) {
         const { dispatch, setCurrentProject } = this.props;
         dispatch(setCurrentProject(id));
         this.setState({redirect: true});
@@ -30,7 +27,7 @@ class ProjectWidget extends Component {
         return(
             <div className="project">
                 {this.state.redirect && <Redirect push={true} to="/dashboard/project" />}
-                <Link href="#" to="/dashboard/project" onClick={this.onClick} data-id={id} >
+                <Link href="#" to="/dashboard/project" onClick={() => this.onClick(id)} >
                     <h3>{title}</h3>
                 </Link>
             </div>
@@ -46,7 +43,7 @@ ProjectWidget.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        setCurrentProject: setCurrentProject
+        setCurrentProject
     }
 }
 
