@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { SET_CURRENT_PAGE, SET_PAGE, REQUEST_PAGE } from './types';
 import { getConfig } from '../utils/authConfigs';
+import { BERT_API_URL } from '../utils/config';
 
 export function setCurrentPage(id) {
     return {
@@ -12,7 +13,7 @@ export function setCurrentPage(id) {
 export function getCurrentPage(id) {
     return dispatch => {
 
-        const authConfig = getConfig('http://bert-backend.dev/page/' + id);
+        const authConfig = getConfig(BERT_API_URL + '/page/' + id);
 
         dispatch(requestPage(id));
 

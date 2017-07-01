@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { SET_CURRENT_TEST, SET_TEST, REQUEST_TEST } from './types';
 import { getConfig } from '../utils/authConfigs';
+import { BERT_API_URL } from '../utils/config';
 
 export function setCurrentTest(id) {
     return {
@@ -12,7 +13,7 @@ export function setCurrentTest(id) {
 export function getCurrentTest(id) {
     return dispatch => {
 
-        const authConfig = getConfig('http://bert-backend.dev/test/' + id);
+        const authConfig = getConfig(BERT_API_URL + '/test/' + id);
 
         dispatch(requestTest(id));
 

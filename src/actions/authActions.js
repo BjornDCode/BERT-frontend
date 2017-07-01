@@ -3,6 +3,7 @@ import { SET_CURRENT_USER, CLEAR_STATE } from './types';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { postConfig } from '../utils/authConfigs';
+import { BERT_API_URL } from '../utils/config';
 
 export function setCurrentUser(user) {
     return {
@@ -14,7 +15,7 @@ export function setCurrentUser(user) {
 export function userLoginRequest(userData) {
     return dispatch => {
 
-        const authConfig = postConfig('http://bert-backend.dev/auth/signin', userData);
+        const authConfig = postConfig(BERT_API_URL + '/auth/signin', userData);
 
         return axios(authConfig).then(response => {
             const token = response.data.token;

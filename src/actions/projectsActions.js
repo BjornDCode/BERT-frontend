@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { SET_PROJECTS, REQUEST_PROJECTS } from './types';
 import { getConfig } from '../utils/authConfigs';
+import { BERT_API_URL } from '../utils/config';
 
 export function requestProjects() {
     return {
@@ -11,7 +12,7 @@ export function requestProjects() {
 export function getProjects() {
     return dispatch => {
 
-        const authConfig = getConfig('http://bert-backend.dev/project');
+        const authConfig = getConfig(BERT_API_URL + '/project');
 
         dispatch(requestProjects());
 
