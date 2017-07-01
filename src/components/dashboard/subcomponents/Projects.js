@@ -6,6 +6,7 @@ import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { getProjects } from '../../../actions/projectsActions';
 import { setActivePage, setActiveDashboardComponent } from '../../../actions/activePage';
+import { setCurrentProject } from '../../../actions/projectActions';
 
 class Projects extends Component {
 
@@ -15,7 +16,7 @@ class Projects extends Component {
     }
 
     componentDidUpdate() {
-        const { dispatch, project, setActivePage, setActiveDashboardComponent } = this.props;
+        const { dispatch, setActivePage, setActiveDashboardComponent } = this.props;
         dispatch(setActivePage("Projects"));
         dispatch(setActiveDashboardComponent("Projects"));
     }
@@ -45,7 +46,8 @@ Projects.propTypes = {
     setActivePage: PropTypes.func.isRequired,
     setActiveDashboardComponent: PropTypes.func.isRequired,
     projects: PropTypes.object.isRequired,
-    project: PropTypes.object.isRequired
+    project: PropTypes.object.isRequired,
+    setCurrentProject: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -54,7 +56,8 @@ function mapStateToProps(state) {
         setActivePage: setActivePage,
         setActiveDashboardComponent: setActiveDashboardComponent,
         projects: state.projects,
-        project: state.project
+        project: state.project,
+        setCurrentProject: setCurrentProject
     }
 }
 

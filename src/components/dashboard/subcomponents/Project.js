@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProject } from '../../../actions/projectActions';
+import { Link } from 'react-router-dom';
+import PageWidget from './PageWidget';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { isEmpty } from 'lodash';
-import { Link } from 'react-router-dom';
 import { setActivePage, setActiveDashboardComponent } from '../../../actions/activePage';
 
 
@@ -18,9 +19,9 @@ class Project extends Component {
 
     componentDidUpdate() {
         const { dispatch, setActivePage, setActiveDashboardComponent, project } = this.props;
+        dispatch(setActivePage("Project"));
         let title = project.id ? project.data.title : "Project";
-        dispatch(setActivePage(title));
-        dispatch(setActiveDashboardComponent("Project"));
+        dispatch(setActiveDashboardComponent(title));
     }
 
     render() {
@@ -32,7 +33,9 @@ class Project extends Component {
 
             if (!isEmpty(this.props.project.data.pages.data)) {
                 pageComponents = this.props.project.data.pages.data.map(page => {
-                    return <div key={page.id}><Link to="/dashboard/page">{page.title}</Link></div>
+                    return <PageWidget key={page.id} id={page.id} title={page.title} />
+                    // return <div key={page.id}><Link to="/dashboard/page">{page.title}</Link></div>
+                    // return <Widget key={page.id} id={page.id} title={page.title} redirect="/dashboard/page" setActiveItem={setCurrentPage} dispatch={dispatch} />
                 });
             }
 
@@ -45,7 +48,7 @@ class Project extends Component {
         }
 
         return (
-            <div className="project">
+            <div className="dashboard-component-container">
                 <div className="pages">
                     <h4>Pages</h4>
                     {this.props.project.isLoading ? <Loader /> : (pageComponents.length > 0) ? pageComponents : <NoData type="pages" /> }
@@ -63,7 +66,7 @@ Project.propTypes = {
     project: PropTypes.object.isRequired,
     getCurrentProject: PropTypes.func.isRequired,
     setActivePage: PropTypes.func.isRequired,
-    setActiveDashboardComponent: PropTypes.func.isRequired
+    setActiveDashboardComponent: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -71,7 +74,7 @@ function mapStateToProps(state) {
         project: state.project,
         getCurrentProject: getCurrentProject,
         setActivePage: setActivePage,
-        setActiveDashboardComponent: setActiveDashboardComponent
+        setActiveDashboardComponent: setActiveDashboardComponent,
     }
 }
 

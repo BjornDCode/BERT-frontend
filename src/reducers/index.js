@@ -4,6 +4,7 @@ import auth from './auth';
 import activePage from './activePage';
 import projects from './projects';
 import project from './project';
+import page from './page';
 
 
 
@@ -12,7 +13,8 @@ const reducer = combineReducers({
     auth,
     activePage,
     projects,
-    project
+    project,
+    page
 });
 
 export default reducer;

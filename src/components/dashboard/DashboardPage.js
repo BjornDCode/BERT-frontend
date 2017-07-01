@@ -5,6 +5,7 @@ import DashboardSidebar from './DashboardSidebar';
 import DashboardComponent from './DashboardComponent';
 import Projects from './subcomponents/Projects';
 import Project from './subcomponents/Project';
+import Page from './subcomponents/Page';
 import Temp from './subcomponents/Temp';
 
 class DashboardPage extends Component {
@@ -30,7 +31,7 @@ class DashboardPage extends Component {
                     <Switch>
                         <Route exact path="/dashboard" component={DashboardComponent(Projects)} />
                         <Route path="/dashboard/project" component={DashboardComponent(Project)} />
-                        <Route path="/dashboard/page" component={DashboardComponent(Temp)} />
+                        <Route path="/dashboard/page" component={DashboardComponent(Page)} />
                         <Route path="/dashboard/test" component={DashboardComponent(Temp)} />
                     </Switch>
 

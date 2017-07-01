@@ -22,29 +22,15 @@ class DashboardSidebar extends Component {
     render() {
 
         const sideBarClass = this.state.navToggle ? "dashboard-sidebar visible" : "dashboard-sidebar";
-        const { title } = this.props.project.data;
-
-        let pageCount;
-        if (this.props.project.data.pages) {
-            pageCount = this.props.project.data.pages.data.length;
-        }
-
-        let testCount;
-        if (this.props.project.data.tests) {
-            testCount = this.props.project.data.tests.data.length;
-        }
+        const { project, page } = this.props;
 
         return (
             <aside className={sideBarClass}>
                 <ul className="card">
                     <li><NavLink exact to="/dashboard" activeClassName="active">Projects</NavLink></li>
-                    {this.props.project.id && (
-                        <div>
-                            <li><NavLink to="/dashboard/project" activeClassName="active">{title}</NavLink></li>
-                            <li><NavLink to="/dashboard/page" activeClassName="active">Pages ({pageCount})</NavLink></li>
-                            <li><NavLink to="/dashboard/test" activeClassName="active">Tests ({testCount})</NavLink></li>
-                        </div>
-                    )}
+                    {this.props.project.id && <li><NavLink to="/dashboard/project" activeClassName="active">{project.data.title}</NavLink></li> }
+                    {this.props.page.id && <li><NavLink to="/dashboard/page" activeClassName="active">{page.data.title}</NavLink></li>}
+                    <li><NavLink to="/dashboard/test" activeClassName="active">TestName</NavLink></li>
                 </ul>
                 <button className="toggle-nav" onClick={this.onClick} ><img src={arrow} alt="Toggle Navigation" /></button>
             </aside>
@@ -53,12 +39,14 @@ class DashboardSidebar extends Component {
 }
 
 DashboardSidebar.propTypes = {
-    project: PropTypes.object.isRequired
+    project: PropTypes.object.isRequired,
+    page: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
     return {
-        project: state.project
+        project: state.project,
+        page: state.page
     }
 }
 
