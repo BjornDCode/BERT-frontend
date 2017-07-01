@@ -1,4 +1,4 @@
-import { SET_PROJECTS, REQUEST_PROJECTS } from '../actions/types';
+import { SET_PROJECTS, REQUEST_PROJECTS, CLEAR_STATE } from '../actions/types';
 
 const initialState = {
     data: [],
@@ -17,6 +17,8 @@ const projects = (state=initialState, action={}) => {
                 data: action.projects,
                 isLoading: false
             }
+        case CLEAR_STATE:
+            return initialState;
         default:
             return state;
     }

@@ -1,4 +1,4 @@
-import { SET_CURRENT_PAGE, SET_PAGE, REQUEST_PAGE } from '../actions/types';
+import { SET_CURRENT_PAGE, SET_PAGE, REQUEST_PAGE, CLEAR_STATE } from '../actions/types';
 
 const initialState = {
     id: null,
@@ -26,6 +26,8 @@ const page = (state=initialState, action={}) => {
                 data: {},
                 isLoading: true
             }
+        case CLEAR_STATE:
+            return initialState;
         default:
             return state;
     }

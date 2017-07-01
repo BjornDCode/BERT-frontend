@@ -22,7 +22,7 @@ class DashboardSidebar extends Component {
     render() {
 
         const sideBarClass = this.state.navToggle ? "dashboard-sidebar visible" : "dashboard-sidebar";
-        const { project, page } = this.props;
+        const { project, page, test } = this.props;
 
         return (
             <aside className={sideBarClass}>
@@ -30,7 +30,7 @@ class DashboardSidebar extends Component {
                     <li><NavLink exact to="/dashboard" activeClassName="active">Projects</NavLink></li>
                     {this.props.project.id && <li><NavLink to="/dashboard/project" activeClassName="active">{project.data.title}</NavLink></li> }
                     {this.props.page.id && <li><NavLink to="/dashboard/page" activeClassName="active">{page.data.title}</NavLink></li>}
-                    <li><NavLink to="/dashboard/test" activeClassName="active">TestName</NavLink></li>
+                    {this.props.test.id && <li><NavLink to="/dashboard/test" activeClassName="active">{test.data.page ? test.data.version + " - " + test.data.page.title : test.data.version}</NavLink></li>}
                 </ul>
                 <button className="toggle-nav" onClick={this.onClick} ><img src={arrow} alt="Toggle Navigation" /></button>
             </aside>
@@ -40,13 +40,15 @@ class DashboardSidebar extends Component {
 
 DashboardSidebar.propTypes = {
     project: PropTypes.object.isRequired,
-    page: PropTypes.object.isRequired
+    page: PropTypes.object.isRequired,
+    test: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
     return {
         project: state.project,
-        page: state.page
+        page: state.page,
+        test: state.test
     }
 }
 

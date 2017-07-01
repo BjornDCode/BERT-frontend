@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProject } from '../../../actions/projectActions';
-import { Link } from 'react-router-dom';
 import PageWidget from './PageWidget';
+import TestWidget from './TestWidget';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
 import { isEmpty } from 'lodash';
@@ -41,7 +41,7 @@ class Project extends Component {
 
             if (!isEmpty(this.props.project.data.tests.data)) {
                 testComponents = this.props.project.data.tests.data.map(test => {
-                    return <div key={test.id}>{test.version}</div>
+                    return <TestWidget key={test.id} id={test.id} version={test.version} page={test.page} />
                 });
             }
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getCurrentPage } from '../../../actions/pageActions';
 import { setActivePage, setActiveDashboardComponent } from '../../../actions/activePage';
 import { isEmpty } from 'lodash';
+import TestWidget from './TestWidget';
 import NoData from './NoData';
 import Loader from '../../common/Loader';
 
@@ -30,7 +31,8 @@ class Page extends Component {
 
             if (!isEmpty(this.props.page.data.tests.data)) {
                 testComponents = this.props.page.data.tests.data.map(test => {
-                    return <div key={test.id}>{test.version}</div>
+                    // return <div key={test.id}>{test.version}</div>
+                    return <TestWidget key={test.id} id={test.id} version={test.version} page={test.page} />
                 });
             }
 
@@ -38,7 +40,7 @@ class Page extends Component {
 
         return (
             <div className="dashboard-component-container">
-                {this.props.page.isLoading ? <Loader /> : (testComponents.length > 0) ? testComponents : <NoData type="pages" /> }
+                {this.props.page.isLoading ? <Loader /> : (testComponents.length > 0) ? testComponents : <NoData type="test" /> }
             </div>
         );
     }

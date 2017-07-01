@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from '../actions/types';
+import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE, CLEAR_STATE } from '../actions/types';
 import { findIndex } from 'lodash';
 
 const flashMessages = (state=[], action = {}) => {
@@ -22,6 +22,8 @@ const flashMessages = (state=[], action = {}) => {
                 ];
             }
             return state;
+        case CLEAR_STATE:
+            return [];
         default:
             return state;
     }

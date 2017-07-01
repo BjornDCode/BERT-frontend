@@ -1,4 +1,4 @@
-import { SET_CURRENT_PROJECT, SET_PROJECT, REQUEST_PROJECT, CLEAR_STATE } from '../actions/types';
+import { SET_CURRENT_TEST, SET_TEST, REQUEST_TEST, CLEAR_STATE } from '../actions/types';
 
 const initialState = {
     id: null,
@@ -6,21 +6,21 @@ const initialState = {
     isLoading: false
 };
 
-const project = (state=initialState, action={}) => {
+const test = (state=initialState, action={}) => {
     switch (action.type) {
-        case SET_CURRENT_PROJECT:
+        case SET_CURRENT_TEST:
             return {
                 id: action.id,
                 data: {},
                 isLoading: false
             }
-        case SET_PROJECT:
-            return {
-                id: action.project.id,
-                data: action.project,
+        case SET_TEST:
+            return  {
+                id: state.id,
+                data: action.test,
                 isLoading: false
             }
-        case REQUEST_PROJECT:
+        case REQUEST_TEST:
             return {
                 id: action.id,
                 data: {},
@@ -33,4 +33,4 @@ const project = (state=initialState, action={}) => {
     }
 }
 
-export default project;
+export default test;

@@ -5,6 +5,7 @@ import activePage from './activePage';
 import projects from './projects';
 import project from './project';
 import page from './page';
+import test from './test';
 
 
 
@@ -14,7 +15,8 @@ const reducer = combineReducers({
     activePage,
     projects,
     project,
-    page
+    page,
+    test
 });
 
 export default reducer;

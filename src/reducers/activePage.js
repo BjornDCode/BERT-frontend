@@ -1,4 +1,4 @@
-import { SET_ACTIVE_PAGE, SET_ACTIVE_DASHBOARD_COMPONENT } from '../actions/types';
+import { SET_ACTIVE_PAGE, SET_ACTIVE_DASHBOARD_COMPONENT, CLEAR_STATE } from '../actions/types';
 
 const initialState = {
     page: "Dashboard",
@@ -17,6 +17,8 @@ const auth = (state=initialState, action={}) => {
                 page: state.page,
                 component: action.title
             }
+        case CLEAR_STATE:
+            return initialState;
         default:
             return state;
     }

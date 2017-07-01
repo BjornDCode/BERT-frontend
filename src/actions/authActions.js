@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_USER, CLEAR_STATE } from './types';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import { postConfig } from '../utils/authConfigs';
@@ -30,5 +30,12 @@ export function logout() {
         localStorage.removeItem('jwtToken');
         setAuthorizationToken(false);
         dispatch(setCurrentUser({}));
+        dispatch(resetState());
+    }
+}
+
+export function resetState() {
+    return {
+        type: CLEAR_STATE
     }
 }
