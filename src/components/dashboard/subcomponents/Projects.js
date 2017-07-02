@@ -32,7 +32,7 @@ class Projects extends Component {
         }
 
         return (
-            <div className="projects">
+            <div className="widget-container">
                 {this.props.projects.isLoading ? <Loader /> : (projectComponents.length > 0) ? projectComponents : <NoData type="projects" />}
             </div>
         );

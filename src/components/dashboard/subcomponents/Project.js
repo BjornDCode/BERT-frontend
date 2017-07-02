@@ -47,11 +47,11 @@ class Project extends Component {
 
         return (
             <div className="dashboard-component-container">
-                <div className="pages">
+                <div className="widget-container">
                     <h4>Pages</h4>
                     {this.props.project.isLoading ? <Loader /> : (pageComponents.length > 0) ? pageComponents : <NoData type="pages" /> }
                 </div>
-                <div className="tests">
+                <div className="widget-container">
                     <h4>Tests</h4>
                     {this.props.project.isLoading ? <Loader /> : (testComponents.length > 0) ? testComponents : <NoData type="tests" /> }
                 </div>

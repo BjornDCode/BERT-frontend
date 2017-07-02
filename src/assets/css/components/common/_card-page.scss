@@ -1,6 +1,18 @@
 
 .card-page {
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @include respond-to(small) {
+        .card {
+            width: 400px;
+            margin: 20px auto;
+        }
+    }
+    
     @include respond-to(medium) {
         width: 100%;
         height: 100vh;
@@ -9,11 +21,5 @@
         justify-content: center;
     }
 
-    .card {
-        @include respond-to(small) {
-            width: 400px;
-            margin: 0;
-        }
-    }
 
 }

@@ -24,7 +24,7 @@ class PageWidget extends Component {
         const { id, title } = this.props;
 
         return (
-            <div className="page">
+            <div className="widget">
                 {this.state.redirect && <Redirect push={true} to="/dashboard/page" />}
                 <Link href="#" to="/dashboard/page" onClick={() => this.onClick(id)} data-id={id}>
                     <h3>{title}</h3>

@@ -1,0 +1,28 @@
+
+.flash-messages {
+    width: calc(100% - 30px);
+
+    .flash-message {
+        margin-top: 15px;
+        padding: 7px;
+        font-size: 12px;
+        text-align: center;
+        color: $white;
+
+        &.error {
+            background-color: $error;
+        }
+
+        &.success {
+            background-color: $success;
+        }
+    }
+
+    @include respond-to(small) {
+        max-width: 430px;
+
+        .flash-message {
+            font-size: 14px;
+        }
+    }
+}

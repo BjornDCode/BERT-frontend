@@ -35,7 +35,9 @@ export default function(ComposedComponent, createLocations) {
                     { this.state.redirectTo && <Redirect push={true} to={this.state.redirectTo} />}
                     <header>
                         <h2>{this.props.activePage.component}</h2>
-                        {addButtons && addButtons}
+                        <div className="add-buttons">
+                            {addButtons && addButtons}
+                        </div>
                     </header>
                     <ComposedComponent />
                 </section>

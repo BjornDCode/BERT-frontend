@@ -25,7 +25,7 @@ class ProjectWidget extends Component {
         const { id, title } = this.props;
 
         return(
-            <div className="project">
+            <div className="widget">
                 {this.state.redirect && <Redirect push={true} to="/dashboard/project" />}
                 <Link href="#" to="/dashboard/project" onClick={() => this.onClick(id)} >
                     <h3>{title}</h3>

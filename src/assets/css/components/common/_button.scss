@@ -1,7 +1,7 @@
 
 .button {
     display: block;
-    width: 80%;
+    width: 100%;
     padding: 0;
     margin-bottom: 20px;
     border: none;
@@ -11,12 +11,24 @@
         display: block;
         width: 100%;
         height: 100%;
+        cursor: default;
         @include museo-sans(regular);
+        &:hover {
+            text-decoration: none;
+        }
     }
 
     &.small {
         padding: 10px 0;
         font-size: 12px;
+        width: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 0;
+
+        a {
+            font-size: 12px;
+        }
     }
 
     &.medium {
@@ -24,7 +36,9 @@
     }
 
     &.big {
-        padding: 15px 0;
+        a {
+            padding: 15px 0;
+        }
     }
 
     &.brand {
@@ -39,27 +53,28 @@
         background-color: $white;
     }
 
-    &.logout {
-        width: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin: 0;
+    &.route-button {
+        max-width: 80%;
     }
 
     @include respond-to(medium) {
-        width: 235px;
+        width: 30%;
 
         &.small {
             font-size: 14px;
+            a {
+                font-size: 14px;
+            }
         }
 
     }
 
     @include respond-to(large) {
-        width: 300px;
+        // width: 300px;
 
         a {
             font-size: 16px;
+            
         }
     }
 

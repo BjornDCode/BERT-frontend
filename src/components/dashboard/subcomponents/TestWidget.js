@@ -21,10 +21,10 @@ class TestWidget extends Component {
     render() {
 
         const { id, version, page } = this.props;
-        const output = page ? version + " - " + page.title : version;
+        const output = page ? "v." + version + " - " + page.title : "v." + version;
 
         return (
-            <div className="test">
+            <div className="widget">
                 {this.state.redirect && <Redirect push={true} to="/dashboard/test" />}
                 <Link href="#" to="/dashboard/test" onClick={() => this.onClick(id)}>
                     <h3>{output}</h3>

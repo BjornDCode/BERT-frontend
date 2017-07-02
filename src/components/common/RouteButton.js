@@ -9,7 +9,7 @@ class RouteButton extends Component {
         const { size, color, redirectTo, text } = this.props;
 
         return(
-            <button className={"button " + size + " " + color}><Link to={redirectTo}>{text}</Link></button>
+            <button className={"button route-button " + size + " " + color}><Link to={redirectTo}>{text}</Link></button>
         );
     }
 }
