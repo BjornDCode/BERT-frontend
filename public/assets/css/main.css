@@ -739,3 +739,6 @@ h1 {
         margin: 0; }
     .widget-container .widget:hover {
       border-color: #F5B337; }
+
+.no-data {
+  width: 100%; }

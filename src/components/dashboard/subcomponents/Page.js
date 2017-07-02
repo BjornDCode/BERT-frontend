@@ -38,7 +38,7 @@ class Page extends Component {
         }
 
         return (
-            <div className="dashboard-component-container">
+            <div className="widget-container">
                 {this.props.page.isLoading ? <Loader /> : (testComponents.length > 0) ? testComponents : <NoData type="test" /> }
             </div>
         );

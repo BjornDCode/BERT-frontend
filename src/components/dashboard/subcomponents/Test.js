@@ -45,7 +45,8 @@ class Test extends Component {
 
         return (
             <div className="dashboard-component-container">
-            <div className="responses">Responses: {responses}</div>
+                <p>A diagram will eventually be created of the responses</p>
+                <div className="responses">Responses: {responses}</div>
                 {this.props.test.isLoading ? <Loader /> : (comparisons.length > 0) ? comparisons : <NoData type="comparisons" /> }
             </div>
         );
