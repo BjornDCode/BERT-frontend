@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import AddNewButton from './subcomponents/AddNewButton.js';
 
-export default function(ComposedComponent) {
+export default function(ComposedComponent, createLocation) {
 
     class DashboardComponent extends Component {
         constructor(props) {
@@ -22,12 +23,12 @@ export default function(ComposedComponent) {
 
         render() {
 
-
             return (
                 <section className="dashboard-component card">
                     { this.state.redirectTo && <Redirect push={true} to={this.state.redirectTo} />}
                     <header>
                         <h2>{this.props.activePage.component}</h2>
+                        {createLocation && <AddNewButton createLocation={createLocation} />}
                     </header>
                     <ComposedComponent />
                 </section>

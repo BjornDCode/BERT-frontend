@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SET_CURRENT_PROJECT, SET_PROJECT, REQUEST_PROJECT } from './types';
-import { getConfig } from '../utils/authConfigs';
+import { getConfig, postConfig } from '../utils/authConfigs';
 import { BERT_API_URL } from '../utils/config';
 
 export function setCurrentProject(id) {
@@ -33,5 +33,15 @@ export function requestProject(id) {
     return {
         type: REQUEST_PROJECT,
         id
+    }
+}
+
+export function createProjectRequest(data) {
+    return dispatch => {
+
+        const authConfig = postConfig(BERT_API_URL + '/project', data);
+
+        return axios(authConfig);
+
     }
 }

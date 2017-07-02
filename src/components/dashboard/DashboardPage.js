@@ -7,6 +7,7 @@ import Projects from './subcomponents/Projects';
 import Project from './subcomponents/Project';
 import Page from './subcomponents/Page';
 import Test from './subcomponents/Test';
+import CreateProjectForm from './subcomponents/CreateProjectForm';
 
 class DashboardPage extends Component {
     constructor(props) {
@@ -29,10 +30,13 @@ class DashboardPage extends Component {
                     <DashboardSidebar />
 
                     <Switch>
-                        <Route exact path="/dashboard" component={DashboardComponent(Projects)} />
-                        <Route path="/dashboard/project" component={DashboardComponent(Project)} />
-                        <Route path="/dashboard/page" component={DashboardComponent(Page)} />
-                        <Route path="/dashboard/test" component={DashboardComponent(Test)} />
+                        <Route exact path="/dashboard" component={DashboardComponent(Projects, 'project')} />
+                        <Route path="/dashboard/project/create" component={DashboardComponent(CreateProjectForm)} />
+                        <Route path="/dashboard/page/create" component={DashboardComponent(CreateProjectForm)} />
+                        <Route path="/dashboard/test/create" component={DashboardComponent(CreateProjectForm)} />
+                        <Route path="/dashboard/project" component={DashboardComponent(Project, 'project')} />
+                        <Route path="/dashboard/page" component={DashboardComponent(Page, 'page')} />
+                        <Route path="/dashboard/test" component={DashboardComponent(Test, 'test')} />
                     </Switch>
 
                 </div>
