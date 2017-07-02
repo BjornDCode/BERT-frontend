@@ -5,9 +5,9 @@ import { Redirect } from 'react-router-dom';
 import InputFieldGroup from '../../common/InputFieldGroup';
 import InputSubmitGroup from '../../common/InputSubmitGroup';
 import validateInput from '../../../utils/validations/create';
-import { createProjectRequest } from '../../../actions/projectActions';
+import { createPageRequest } from '../../../actions/pageActions';
 
-class CreateProjectForm extends Component {
+class CreatePageForm extends Component {
     constructor(props) {
         super(props);
 
@@ -36,7 +36,7 @@ class CreateProjectForm extends Component {
         e.preventDefault();
         if (this.isValid()) {
             this.setState({ errors: {}, isLoading: true });
-            this.props.createProjectRequest(this.state).then(
+            this.props.createPageRequest(this.state, this.props.project.id).then(
                 () => this.setState({ redirectTo: "/dashboard" }),
                 (error) => this.setState({ errors: error.response.data, isLoading: false })
             );
@@ -57,17 +57,23 @@ class CreateProjectForm extends Component {
             <div className="dashboard-component-container">
                 {this.state.redirectTo && <Redirect push={true} to={redirectTo} />}
                 <form onSubmit={this.onSubmit}>
-                    <InputFieldGroup type="text" label="Project Title" name="title" value={title} placeholder="Title" onChange={this.onChange} errors={errors} />
+                    <InputFieldGroup type="text" label="Page Title" name="title" value={title} placeholder="Title" onChange={this.onChange} errors={errors} />
 
-                    <InputSubmitGroup value="Create Project" isLoading={isLoading} />
+                    <InputSubmitGroup value="Create Page" isLoading={isLoading} />
                 </form>
             </div>
         );
     }
 }
 
-CreateProjectForm.propTypes = {
-    createProjectRequest: PropTypes.func.isRequired
+CreatePageForm.propTypes = {
+    createPageRequest: PropTypes.func.isRequired
 };
 
-export default connect(null, {createProjectRequest})(CreateProjectForm);
+function mapStateToProps(state) {
+    return {
+        project: state.project
+    }
+}
+
+export default connect(mapStateToProps, {createPageRequest})(CreatePageForm);

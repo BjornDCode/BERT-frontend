@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SET_CURRENT_PAGE, SET_PAGE, REQUEST_PAGE } from './types';
-import { getConfig } from '../utils/authConfigs';
+import { getConfig, postConfig } from '../utils/authConfigs';
 import { BERT_API_URL } from '../utils/config';
 
 export function setCurrentPage(id) {
@@ -35,5 +35,21 @@ export function requestPage(id) {
     return {
         type: REQUEST_PAGE,
         id
+    }
+}
+
+export function createPageRequest(data, id) {
+
+    const requestData = {
+        "title": data.title,
+        "project_id": id
+    }
+
+    return dispatch => {
+
+        const authConfig = postConfig(BERT_API_URL + '/page', requestData);
+
+        return axios(authConfig);
+
     }
 }
