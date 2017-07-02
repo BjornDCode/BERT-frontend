@@ -391,7 +391,7 @@ template {
 
 body {
   background-color: #F7F7F7;
-  font-family: 'Museo Sans';
+  font-family: 'museo-sans';
   font-weight: 500;
   color: #333333; }
 
@@ -426,7 +426,7 @@ h1 {
     width: 100%;
     height: 100%;
     cursor: default;
-    font-family: 'Museo Sans';
+    font-family: 'museo-sans';
     font-weight: 500; }
     .button a:hover {
       text-decoration: none; }

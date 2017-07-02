@@ -1,6 +1,6 @@
 
 @mixin museo-sans($weight: regular, $style: none) {
-    font-family: 'Museo Sans';
+    font-family: 'museo-sans';
     @if ($style == italic) {
         font-style: italic;
     }
