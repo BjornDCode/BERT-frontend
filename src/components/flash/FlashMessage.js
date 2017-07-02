@@ -17,7 +17,7 @@ class FlashMessage extends Component {
         const { text, type } = this.props.message;
 
         return(
-            <div className={(type == "success") ? "flash-message success" : "flash-message error"}>
+            <div className={(type === "success") ? "flash-message success" : "flash-message error"}>
                 {text}
                 <button onClick={this.onClick} className="close-message"><span>&times;</span></button>
             </div>
