@@ -3,7 +3,8 @@ import { SET_CURRENT_TEST, SET_TEST, REQUEST_TEST, CLEAR_STATE } from '../action
 const initialState = {
     id: null,
     data: {},
-    isLoading: false
+    isLoading: false,
+    reload: false
 };
 
 const test = (state=initialState, action={}) => {
@@ -12,19 +13,22 @@ const test = (state=initialState, action={}) => {
             return {
                 id: action.id,
                 data: {},
-                isLoading: false
+                isLoading: false,
+                reload: false
             }
         case SET_TEST:
             return  {
                 id: state.id,
                 data: action.test,
-                isLoading: false
+                isLoading: false,
+                reload: false
             }
         case REQUEST_TEST:
             return {
                 id: action.id,
                 data: {},
-                isLoading: true
+                isLoading: true,
+                reload: false
             }
         case CLEAR_STATE:
             return initialState;

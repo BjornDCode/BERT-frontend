@@ -53,7 +53,7 @@ class Project extends Component {
                 </div>
                 <div className="tests">
                     <h4>Tests</h4>
-                    {this.props.project.isLoading ? <Loader /> : (testComponents.length > 0) ? testComponents : <NoData type="pages" /> }
+                    {this.props.project.isLoading ? <Loader /> : (testComponents.length > 0) ? testComponents : <NoData type="tests" /> }
                 </div>
             </div>
         );

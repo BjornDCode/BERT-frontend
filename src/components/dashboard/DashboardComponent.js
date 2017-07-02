@@ -26,7 +26,7 @@ export default function(ComposedComponent, createLocations) {
             let addButtons;
             if (createLocations) {
                 addButtons = createLocations.map((location, i) => {
-                    return <AddNewButton key={i} createLocation={location} />
+                    return <AddNewButton key={i} location={location} />
                 });
             }
 

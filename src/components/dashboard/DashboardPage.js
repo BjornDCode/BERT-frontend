@@ -31,12 +31,12 @@ class DashboardPage extends Component {
                     <DashboardSidebar />
 
                     <Switch>
-                        <Route exact path="/dashboard" component={DashboardComponent(Projects, ['project'])} />
+                        <Route exact path="/dashboard" component={DashboardComponent(Projects, [{type: 'project'}])} />
                         <Route path="/dashboard/project/create" component={DashboardComponent(CreateProjectForm)} />
                         <Route path="/dashboard/page/create" component={DashboardComponent(CreatePageForm)} />
                         <Route path="/dashboard/test/create" component={DashboardComponent(CreateProjectForm)} />
-                        <Route path="/dashboard/project" component={DashboardComponent(Project, ['page', 'test'])} />
-                        <Route path="/dashboard/page" component={DashboardComponent(Page, ['test'])} />
+                        <Route path="/dashboard/project" component={DashboardComponent(Project, [{type: 'page'}, {type: 'test', fromPage: false}])} />
+                        <Route path="/dashboard/page" component={DashboardComponent(Page, [{type: 'test', fromPage: true}])} />
                         <Route path="/dashboard/test" component={DashboardComponent(Test)} />
                     </Switch>
 

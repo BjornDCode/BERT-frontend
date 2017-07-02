@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { SET_CURRENT_TEST, SET_TEST, REQUEST_TEST } from './types';
-import { getConfig } from '../utils/authConfigs';
+import { getConfig, postConfig } from '../utils/authConfigs';
 import { BERT_API_URL } from '../utils/config';
 
 export function setCurrentTest(id) {
@@ -35,5 +35,22 @@ export function requestTest(id) {
     return {
         type: REQUEST_TEST,
         id
+    }
+}
+
+export function createTestRequest(project_id, page_id) {
+    return dispatch => {
+
+        const requestData = {
+            project_id,
+            page_id
+        }
+
+        const authConfig = postConfig(BERT_API_URL + '/test', requestData);
+
+        return axios(authConfig).then(response => {
+            window.location.reload();
+        }); // Then reload?
+
     }
 }
